@@ -1,16 +1,17 @@
 //
 // Specification file for the Die class
-// Taken directly from text (page 178)
+// Modified from textbook (page 178)
 
 #ifndef HW_4_DIE_H
 #define HW_4_DIE_H
 class Die {
 private:
-    int sides;
-    int value;
+    int sides; // Number of sides
+    int value; // The die's value
 public:
-    Die(int = 6);
-    void roll(); int getSides(); int getValue();
+    Die(int = 6); // Constructor
+    void roll(); // Rolls the die
+    int getValue(); // Returns the die's value
 };
 
 #endif //HW_4_DIE_H

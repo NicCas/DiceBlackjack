@@ -1,4 +1,4 @@
-// Taken directly from text (page 178-179)
+// Modified from textbook (page 178-179)
 // Implememtation file for the Die class
 
 #include <cstdlib> // For rand and srand
@@ -37,15 +37,6 @@ void Die::roll()
 
     // Get a random value for the die.
     value = (rand() % (sides - MIN_VALUE + 1)) + MIN_VALUE;
-}
-
-//*******************************************************
-// The getSides member function returns the number of *
-// for this die. *
-//*******************************************************
-int Die::getSides()
-{
-    return sides;
 }
 
 //********************************************************

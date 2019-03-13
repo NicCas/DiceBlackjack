@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Die.h"
 
+using namespace std;
+
 int main() {
 
     /*
@@ -28,6 +30,31 @@ int main() {
      *        without going over 21 wins.
      *
      */
+
+    const int dieSides = 6;
+    int compValue;
+    bool playRound = true;
+
+    Die die1(dieSides);
+    Die die2(dieSides);
+
+    while (playRound)
+    {
+
+        die1.roll();
+        die2.roll();
+        compValue = die1.getValue() + die2.getValue();
+
+        while (compValue <= 17)
+        {
+
+            die1.roll();
+            compValue = compValue + die1.getValue();
+        }
+
+        playRound = false;
+
+    }
 
 
 
