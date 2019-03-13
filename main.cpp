@@ -32,27 +32,113 @@ int main() {
      */
 
     const int dieSides = 6;
-    int compValue;
+    int compTotal, playerTotal, compScore, playerScore;
+    char userDesision;
     bool playRound = true;
+
+    compScore = 0;
+    playerScore = 0;
 
     Die die1(dieSides);
     Die die2(dieSides);
 
     while (playRound)
     {
+        die1.roll();
+        die2.roll();
+        compTotal = die1.getValue() + die2.getValue();
+
+        while (compTotal <= 17)
+        {
+            die1.roll();
+            compTotal = compTotal + die1.getValue();
+        }
 
         die1.roll();
         die2.roll();
-        compValue = die1.getValue() + die2.getValue();
+        playerTotal = die1.getValue() + die2.getValue();
 
-        while (compValue <= 17)
+        cout << "You rolled " << die1.getValue() << " & " << die2.getValue() << endl;
+        cout << "Your total is: " << playerTotal << endl;
+
+        userDesision = 'a';
+
+        while (userDesision != 'y' && userDesision != 'n')
         {
-
-            die1.roll();
-            compValue = compValue + die1.getValue();
+            cout << "\nWould you like to roll again? y/n" << endl;
+            cin >> userDesision;
         }
 
-        playRound = false;
+        while (userDesision == 'y')
+        {
+            if (playerTotal <= 21)
+            {
+                die1.roll();
+                die2.roll();
+                playerTotal = playerTotal + die1.getValue() + die2.getValue();
+
+                cout << "You rolled " << die1.getValue() << " & " << die2.getValue() << endl;
+                cout << "Your total is: " << playerTotal << endl;
+
+                userDesision = 'a';
+
+                while (userDesision != 'y' && userDesision != 'n')
+                {
+                    cout << "\nWould you like to roll again? y/n" << endl;
+                    cin >> userDesision;
+                }
+
+            } else {
+
+                userDesision = 'n';
+            }
+
+        }
+
+        cout << "The computer's score was " << compTotal << endl;
+        cout << endl;
+
+        if (compTotal > 21)
+        {
+            cout << "You win! The computer went over 21" << endl;
+            playerScore ++;
+
+        } else if (playerTotal > 21) {
+            cout << "The computer wins! You went over 21" << endl;
+            compScore ++;
+
+        } else if (playerTotal > compTotal) {
+            cout << "You win! You beat the computer's score" << endl;
+            playerScore ++;
+
+        } else if (compTotal > playerTotal) {
+            cout << "The computer wins! It beat your score" << endl;
+            compScore ++;
+
+        } else if (compTotal == playerTotal) {
+            cout << "It's a tie!" << endl;
+
+        } else {
+            cout << "Error: Something went wrong" << endl;
+
+        }
+
+        cout << "You have won" << playerScore << " games and the computer has won " << compScore << endl;
+
+        userDesision = 'a';
+
+        while (userDesision != 'y' && userDesision != 'n')
+        {
+            cout << endl;
+            cout << "\nWould you like to play another round? y/n" << endl;
+            cin >> userDesision;
+        }
+
+        if (userDesision == 'n')
+        {
+            playRound = false;
+
+        }
 
     }
 
