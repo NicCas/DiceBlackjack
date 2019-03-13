@@ -48,7 +48,7 @@ int main() {
     // Explains the rules
     cout << "Welcome to Blackjack Dice! The object of the game is to get the highest score by rolling" << endl;
     cout << "6-sided die without going over 21. You are competing against the computer. If the computer" << endl;
-    cout << "happens to over 21 first, you win!" << endl << endl;
+    cout << "happens to go over 21 first, you win!" << endl << endl;
 
     // This while-loop allows the user to play multiple rounds
     while (playRound)
@@ -178,14 +178,6 @@ int main() {
             playRound = false;
 
         }
-
-
-
-
-        //Chapter 14 Programming Challenge #14 Parking Ticket Sim Pg 889
-
-
-
     }
 
     return 0;
