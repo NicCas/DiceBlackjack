@@ -167,7 +167,7 @@ int main() {
         {
             // User can play another round or end game
 
-            cout << endl;
+            cout << endl
             cout << "\nWould you like to play another round? y/n" << endl;
             cin >> userDecision;
         }
